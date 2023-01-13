@@ -1,10 +1,10 @@
 import * as Token from "@/common/token";
 import {
   Viewer,
-  Ion, 
+  Ion,
   WebMapTileServiceImageryProvider,
 } from 'cesium'
-export default function(){
+export default function () {
   Ion.defaultAccessToken = Token.CesiumIonDefaultAccessToken;
   let viewer = new Viewer("cesiumContainer", {
     shouldAnimate: true,
@@ -41,6 +41,5 @@ export default function(){
   );
   // 隐藏版权信息
   viewer._cesiumWidget._creditContainer.style.display = "none";
-  
   return viewer
 }

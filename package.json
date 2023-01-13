@@ -9,6 +9,8 @@
   "dependencies": {
     "cesium": "^1.92.0",
     "core-js": "^3.8.3",
+    "eli-map": "^0.0.90",
+    "terraformer-wkt-parser": "^1.2.1",
     "vue": "^3.2.13"
   },
   "devDependencies": {

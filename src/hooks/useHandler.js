@@ -10,9 +10,12 @@ var currentShow;
 var attributes;
 var visibility = 'hidden';
 export default function (viewer) {
+
   var handler = new ScreenSpaceEventHandler(viewer.scene.canvas);
   handler.setInputAction(function (click) {
+
     var pickedObject = viewer.scene.pick(click.position);
+
     if (defined(pickedObject) && defined(pickedObject.id)) {
       visibility = 'hidden';
       //判断鼠标点击的位置是不是上次点击的位置
@@ -46,7 +49,7 @@ export default function (viewer) {
       // if (inputs[1].checked) {
       if (true) {
         // let i = currentObjectId.substring(5) - 1;
-        attributes.color = [255, 0, 0, 128];
+        attributes.color = [255, 255, 0, 128];
         attributes.show = [1];
         // document.getElementById("id").innerText = currentObjectId;
         // document.getElementById("floor").innerText = excelData[i].floor;

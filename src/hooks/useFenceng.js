@@ -25,20 +25,20 @@ const CENTER = new Cartesian3(
   5002485.121394477,
   3214420.6850761026
 );
-var modelMatrix = new Transforms.eastNorthUpToFixedFrame(CENTER);
+var modelMatrix = new Transforms.eastNorthUpToFixedFrame(CENTER);// 获取某个位置垂直于当前地表的垂直坐标系
 var hprRotation = Matrix3.fromHeadingPitchRoll(
   new HeadingPitchRoll(Math.toRadians(-1), 0.0, 0.0)//水平方向的旋转角
 );
 export default function (viewer, floorID, height, i) {
-  if(i == 0) {
+  if (i == 0) {
     height = -1.1
-  }else{
+  } else {
     height = 3.0
   }
   hpr[i] = Matrix4.fromRotationTranslation(
     hprRotation,
     new Cartesian3(0.0, 0.0, height) //楼层高度上的偏移
-  );
+  );//相同的hpr 但是怎加了高度 在hprRotation的基础上拉升height的高度
   Matrix4.multiply(modelMatrix, hpr[i], modelMatrix);
   viewer.scene.primitives.add(
     new ClassificationPrimitive({
@@ -50,7 +50,7 @@ export default function (viewer, floorID, height, i) {
         modelMatrix: modelMatrix,
         attributes: {
           color: ColorGeometryInstanceAttribute.fromColor(
-            new Color(0.0, 0.0, 0.0, 0.0)//设置高亮颜色
+            new Color(0, 0, 0, 0)//设置高亮颜色
           ),
           show: new ShowGeometryInstanceAttribute(true),//设置初始化后是否显示
         },
